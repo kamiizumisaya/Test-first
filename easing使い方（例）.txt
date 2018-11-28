@@ -1,0 +1,29 @@
+
+class GameObject
+{
+public:
+	Easing easing;
+	std::string imagefile;
+	GameObject(std::string file){
+	DG::Create_image(this->imagefile,"./data/image/" + file);
+	}
+	~GameObject()
+	{
+	DG::Image_Erase(this->imagefile);
+	}		
+	void Initialize();
+	void UpDate();
+	void Render();
+	void Finalize();
+}
+
+
+GameObject::GameObject(std::string file)
+{
+DG::Create_image(this->imagefile,"./data/image/" + file);
+}
+______________________
+
+auto logo = new GameObject("logo.png");
+
+delete logo;
